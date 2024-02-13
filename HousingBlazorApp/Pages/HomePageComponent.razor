@@ -1,0 +1,30 @@
+﻿@page "/home"
+@using HousingModel
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject ProtectedSessionStorage protectedSessionStore;
+
+<h1>Hello, world!</h1>
+@if (username != null)
+{
+    <h2>@username</h2>
+}
+else
+{
+    <h2>You were not signed in. <a href="/login">Login</a></h2>
+}
+
+@code {
+    string? username = null;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var res = await protectedSessionStore.GetAsync<string>("appuser.email");
+            if (res.Success)
+            {
+                username = res.Value;
+                StateHasChanged();
+            }
+        }
+    }
+}

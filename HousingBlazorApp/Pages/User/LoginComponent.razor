@@ -1,0 +1,66 @@
+﻿@page "/login"
+@using HousingModel
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject NavigationManager navigationManager
+@inject ProtectedSessionStorage protectedSessionStore
+
+<PageTitle>Login</PageTitle>
+<h2>Login to Housing</h2>
+<div class="main">
+<form>
+    <div class="imgcontainer">
+        <img src="/images/avatar.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" @bind="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" @bind="psw" required>
+
+        <button type="button" @onclick="Login">Login</button>
+        <label>
+            <input type="checkbox" name="remember" @bind="rememberMe"> Remember me
+        </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="reset" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+</form>
+    @if (error.Length > 0)
+    {
+        <div class="text-danger">@error</div>
+    }
+</div>
+@code{
+    string uname;
+    string psw;
+    bool rememberMe=false;
+    string error = "2";
+    async Task Login()
+    {
+        error = "";
+        HttpClient client = new HttpClient();
+        var data = new AppLogin() { Email = uname, Password = psw };
+        var content = JsonContent.Create(data);
+        //TODO the URL should be configured.
+        var resp = await client.PostAsync("https://localhost:7262/api/AppUser/Login", content);
+        if (resp.IsSuccessStatusCode)
+        {
+            //go to home page or any other page
+            await protectedSessionStore.SetAsync("appuser.email", uname);
+            navigationManager.NavigateTo("/home");           
+        }
+        else
+        {
+            //display error message
+            //error = await resp.Content.ReadAsStringAsync();
+            error = "One of the fields are wrong! Try again";
+        }
+        client.Dispose();
+        StateHasChanged();
+    }
+}

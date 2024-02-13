@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingDB", "HousingDB.csproj", "{A3824CD5-48D6-4C47-B19D-E43B1084DB51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingModel", "..\HousingModel\HousingModel.csproj", "{CDCFE85A-3FB7-493E-AEFA-D1E7CBB6A019}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3824CD5-48D6-4C47-B19D-E43B1084DB51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3824CD5-48D6-4C47-B19D-E43B1084DB51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3824CD5-48D6-4C47-B19D-E43B1084DB51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3824CD5-48D6-4C47-B19D-E43B1084DB51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDCFE85A-3FB7-493E-AEFA-D1E7CBB6A019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDCFE85A-3FB7-493E-AEFA-D1E7CBB6A019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDCFE85A-3FB7-493E-AEFA-D1E7CBB6A019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDCFE85A-3FB7-493E-AEFA-D1E7CBB6A019}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66A4E652-A0E0-44B8-8784-723D27F491DB}
+	EndGlobalSection
+EndGlobal
