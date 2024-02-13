@@ -1,0 +1,11 @@
+D:\personal\school\housings\HousingModels\bin\Debug\net8.0\HousingModels.deps.json
+D:\personal\school\housings\HousingModels\bin\Debug\net8.0\HousingModels.dll
+D:\personal\school\housings\HousingModels\bin\Debug\net8.0\HousingModels.pdb
+D:\personal\school\housings\HousingModels\obj\Debug\net8.0\HousingModels.GeneratedMSBuildEditorConfig.editorconfig
+D:\personal\school\housings\HousingModels\obj\Debug\net8.0\HousingModels.AssemblyInfoInputs.cache
+D:\personal\school\housings\HousingModels\obj\Debug\net8.0\HousingModels.AssemblyInfo.cs
+D:\personal\school\housings\HousingModels\obj\Debug\net8.0\HousingModels.csproj.CoreCompileInputs.cache
+D:\personal\school\housings\HousingModels\obj\Debug\net8.0\HousingModels.dll
+D:\personal\school\housings\HousingModels\obj\Debug\net8.0\refint\HousingModels.dll
+D:\personal\school\housings\HousingModels\obj\Debug\net8.0\HousingModels.pdb
+D:\personal\school\housings\HousingModels\obj\Debug\net8.0\ref\HousingModels.dll
