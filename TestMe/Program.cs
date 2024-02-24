@@ -1,9 +1,35 @@
 ﻿using HousingModel;
 using System.Net.Http.Json;
+using System.Text.Json;
 public partial class Program
 {
+    public static async Task<Tuple<double, double>> AddressToLatLong(string address)
+    {
+        try
+        {
+            //call Http to: https://nominatim.openstreetmap.org/search?addressdetails=1&q={address}&format=jsonv2&limit=1
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("User-Agent", "C# console program");
+            var resp = await client.GetAsync($"https://nominatim.openstreetmap.org/search?addressdetails=1&q={address}&format=jsonv2&limit=1");
+            //read resp as json
+            string sresp = await resp.Content.ReadAsStringAsync();
+            //parse the json to get lat and long
+            var jresp = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(sresp);
+            double lon = double.Parse(jresp[0]["lon"].ToString());
+            double lat = double.Parse(jresp[0]["lat"].ToString());
+            return new Tuple<double, double>(lat, lon);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return new Tuple<double, double>(0, 0);
+        }
+    }
     public static async Task Main(string[] args)
     {
+        
+        var x = AddressToLatLong("1600 Amphitheatre Parkway, Mountain View, CA");
+        await Console.Out.WriteLineAsync(x.ToString());
         Console.ReadKey();
         HttpClient client = new HttpClient();
         var resp = await client.GetAsync("https://localhost:7262/api/AppUser/Test");

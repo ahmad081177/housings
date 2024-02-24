@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tyEJNOOBNC1xjzZNuv8TNvKpuGlF94WDG6mW5E8jFZRaraG+BY0V/NkAg6or5pOR/7CCfFBjLWo7JqDozlrXtQ==",
+  "dgSpecHash": "yOBfqvRugPCS1bDk545DziCg1yFgb81jFDe0fA72OUKxmUhEyjAJ8jDLaOt1u4jelD7Ohl6nc2ZOGKqdhQicuA==",
   "success": true,
-  "projectFilePath": "D:\\personal\\school\\asp.net\\Blazor\\Housing\\HousingBlazorApp\\HousingBlazorApp.csproj",
+  "projectFilePath": "D:\\personal\\school\\2024\\housings\\HousingBlazorApp\\HousingBlazorApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

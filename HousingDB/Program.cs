@@ -1,4 +1,5 @@
 using HousingDB.DBModels;
+using HousingDB.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<HousingDBContext>(options =>
     builder.Configuration.GetConnectionString("DefaultConnection")
     .Replace("[DataDirectory]", path)));
 
+//register the email service as singleton
+builder.Services.AddSingleton<EmailService>();
 
 var app = builder.Build();
 

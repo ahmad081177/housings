@@ -7,11 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\House\NewHouseComponent.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\House\NewHouseComponent.razor.css" />
+  </ItemGroup>
+<ItemGroup>
     <ProjectReference Include="..\HousingModel\HousingModel.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
-
 </Project>

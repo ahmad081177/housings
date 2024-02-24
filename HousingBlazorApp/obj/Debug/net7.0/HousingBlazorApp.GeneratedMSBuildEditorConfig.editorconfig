@@ -9,39 +9,63 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HousingBlazorApp
 build_property.RootNamespace = HousingBlazorApp
-build_property.ProjectDir = D:\personal\school\asp.net\Blazor\Housing\HousingBlazorApp\
+build_property.ProjectDir = D:\personal\school\2024\housings\HousingBlazorApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\personal\school\asp.net\Blazor\Housing\HousingBlazorApp
+build_property.MSBuildProjectDirectory = D:\personal\school\2024\housings\HousingBlazorApp
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/personal/school/asp.net/Blazor/Housing/HousingBlazorApp/App.razor]
+[D:/personal/school/2024/housings/HousingBlazorApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/personal/school/asp.net/Blazor/Housing/HousingBlazorApp/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TWFpbkxheW91dC5yYXpvcg==
+[D:/personal/school/2024/housings/HousingBlazorApp/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/personal/school/asp.net/Blazor/Housing/HousingBlazorApp/Pages/HomePageComponent.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVBhZ2VDb21wb25lbnQucmF6b3I=
+[D:/personal/school/2024/housings/HousingBlazorApp/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/personal/school/asp.net/Blazor/Housing/HousingBlazorApp/Pages/Index.razor]
+[D:/personal/school/2024/housings/HousingBlazorApp/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/personal/school/asp.net/Blazor/Housing/HousingBlazorApp/_Imports.razor]
+[D:/personal/school/2024/housings/HousingBlazorApp/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/personal/school/2024/housings/HousingBlazorApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/personal/school/asp.net/Blazor/Housing/HousingBlazorApp/Pages/User/LoginComponent.razor]
+[D:/personal/school/2024/housings/HousingBlazorApp/Pages/House/HouseComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG91c2VcSG91c2VDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-u29lp9mitw
+
+[D:/personal/school/2024/housings/HousingBlazorApp/Pages/House/NewHouseComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG91c2VcTmV3SG91c2VDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-d2bc204yk2
+
+[D:/personal/school/2024/housings/HousingBlazorApp/Pages/User/LoginComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxMb2dpbkNvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-32ijx6pk30
 
-[D:/personal/school/asp.net/Blazor/Housing/HousingBlazorApp/Pages/_Host.cshtml]
+[D:/personal/school/2024/housings/HousingBlazorApp/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-bp4fgskj82
+
+[D:/personal/school/2024/housings/HousingBlazorApp/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-wxuk7icwwn
+
+[D:/personal/school/2024/housings/HousingBlazorApp/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/personal/school/2024/housings/HousingBlazorApp/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\personal\\school\\asp.net\\Blazor\\Housing\\HousingBlazorApp\\HousingBlazorApp.csproj",
+      "projectUniqueName": "D:\\personal\\school\\2024\\housings\\HousingBlazorApp\\HousingBlazorApp.csproj",
       "projectName": "HousingBlazorApp",
-      "projectPath": "D:\\personal\\school\\asp.net\\Blazor\\Housing\\HousingBlazorApp\\HousingBlazorApp.csproj",
+      "projectPath": "D:\\personal\\school\\2024\\housings\\HousingBlazorApp\\HousingBlazorApp.csproj",
       "packagesPath": "C:\\Users\\agbaria\\.nuget\\packages\\",
-      "outputPath": "D:\\personal\\school\\asp.net\\Blazor\\Housing\\HousingBlazorApp\\obj\\",
+      "outputPath": "D:\\personal\\school\\2024\\housings\\HousingBlazorApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -59,8 +59,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\personal\\school\\asp.net\\Blazor\\Housing\\HousingModel\\HousingModel.csproj": {
-              "projectPath": "D:\\personal\\school\\asp.net\\Blazor\\Housing\\HousingModel\\HousingModel.csproj"
+            "D:\\personal\\school\\2024\\housings\\HousingModel\\HousingModel.csproj": {
+              "projectPath": "D:\\personal\\school\\2024\\housings\\HousingModel\\HousingModel.csproj"
             }
           }
         }
