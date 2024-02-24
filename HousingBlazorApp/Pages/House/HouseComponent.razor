@@ -1,0 +1,133 @@
+﻿@page "/house"
+@using HousingModel
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject NavigationManager navigationManager
+@inject ProtectedSessionStorage protectedSessionStore
+
+<PageTitle>New House</PageTitle>
+
+@if (house != null)
+{
+    <div class="house-details">
+        <h2>House Details</h2>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="building-details-tab" data-toggle="tab" href="#building-details" role="tab" aria-controls="building-details" aria-selected="true">Building Details</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="false">Location</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="building-details" role="tabpanel" aria-labelledby="building-details-tab">
+                <dl>
+                    <dt>Square Root:</dt>
+                    <dd>@house.BuildingDetails.SquareRoot</dd>
+                    <dt>Number of Rooms:</dt>
+                    <dd>@house.BuildingDetails.NumOfRooms</dd>
+                    <dt>Number of Bathrooms:</dt>
+                    <dd>@house.BuildingDetails.NumOfBathrooms</dd>
+                    <dt>Has Swimming Pool:</dt>
+                    <dd>@(house.BuildingDetails.HasSwimmingPool ? "Yes" : "No")</dd>
+                    <dt>Is Private:</dt>
+                    <dd>@(house.BuildingDetails.IsPrivate ? "Yes" : "No")</dd>
+                    <dt>Level:</dt>
+                    <dd>@house.BuildingDetails.Level</dd>
+                </dl>
+            </div>
+            <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="location-tab">
+                <dl>
+                    <dt>Country:</dt>
+                    <dd>@house.Location.Country</dd>
+                    <dt>City:</dt>
+                    <dd>@house.Location.City</dd>
+                    <dt>Street:</dt>
+                    <dd>@house.Location.Street</dd>
+                    <dt>Postal Code:</dt>
+                    <dd>@house.Location.PostalCode</dd>
+                    <dt>Latitude:</dt>
+                    <dd>@house.Location.Latitude</dd>
+                    <dt>Longitude:</dt>
+                    <dd>@house.Location.Longitude</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p>No house details available.</p>
+}
+
+@code {
+    [Parameter]
+    public House house { get; set; }
+}
+
+
+
+@* @page "/house/new"
+@using HousingModel
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject NavigationManager navigationManager
+@inject ProtectedSessionStorage protectedSessionStore
+
+<PageTitle>New House</PageTitle>
+
+<h3>Add new House</h3>
+<!--Add the form here to add a new house-->
+<div class="main">
+    <form>
+        <div class="container">
+            <label for="housePrice"><b>House Price</b></label>
+            <input type="number" class="inputf" placeholder="Enter Price" name="houseName" @bind="house.Price" required>
+
+            <label for="houseDesc"><b>House Description</b></label>
+            <textarea placeholder="Enter Description" class="inputf" name="houseDesc" @bind="house.Description" rows="3" cols="30" />
+        </div>
+        <!--Add section for House Building Details-->
+        <div class="container">
+            <label for="houseNumOfRooms"><b>Number of Rooms</b></label>
+            <input type="number" class="inputf" name="houseNumOfRooms" @bind="buildingDetail.NumOfRooms" required>
+
+            <label for="houseSqrRoots"><b>Square Roots (m2)</b></label>
+            <input type="number" class="inputf" placeholder="200" name="houseSqrRoots" @bind="buildingDetail.SquareRoot" required>
+
+            <label for="houseNumOfBathRooms"><b>Number of Bath Rooms</b></label>
+            <input type="number" class="inputf" placeholder="2" name="houseNumOfBathRooms" @bind="buildingDetail.NumOfBathrooms" required>
+
+            <label for="houseIsPrivate"><b>Is Private?</b></label>
+            <input type="checkbox" class="inputf" name="houseIsPrivate" @bind="buildingDetail.IsPrivate" required>
+
+            <label for="houseLevel"><b>Level</b></label>
+            <input type="number" class="inputf" placeholder="1" name="houseLevel" @bind="buildingDetail.Level" required>
+
+        </div>
+        
+            <!--Add the button to submit the form-->
+        <button type="button" @onclick="AddHouse">Add House</button>
+    </form>
+    </div>
+
+@code {
+    House house = new House();
+    HouseBuildingDetail buildingDetail = new HouseBuildingDetail();
+    public async Task AddHouse()
+    {
+        HttpClient client = new HttpClient();
+        var content = JsonContent.Create(house);
+        var resp = await client.PostAsync("https://localhost:7262/api/House", content);
+        if (resp.IsSuccessStatusCode)
+        {
+            navigationManager.NavigateTo("/home");
+        }
+        else
+        {
+            //display error message
+            //error = await resp.Content.ReadAsStringAsync();
+        }
+    }
+}
+ *@

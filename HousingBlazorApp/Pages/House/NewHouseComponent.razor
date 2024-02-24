@@ -1,0 +1,222 @@
+﻿@page "/house/new"
+@using HousingModel
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@using Microsoft.AspNetCore.Components.Forms
+
+@inject NavigationManager navigationManager
+@inject ProtectedSessionStorage protectedSessionStore
+
+
+<div class="new-house-form">
+    <h2>Create New House</h2>
+
+    <form>
+        <!-- Display error message - just in case, with red, large bold font-->
+        @if (error != null && error.Length > 0)
+        {
+            <div class="text-danger">@error</div>
+        }
+        @if (NewHouse != null)
+        {
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" @bind="@NewHouse.Price" required />
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" @bind="@NewHouse.Description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="mainThumbnail">Main Thumbnail:</label>
+                <InputFile id="mainThumbnail" class="shadow bg-gradient" title="House Thumbnail" OnChange="HandleMainThumbnailUpload" accept=".png,.jpg,.jpeg" />
+            </div>
+            <div class="form-group">
+                <label for="thumbnail1">Thumbnail 1:</label>
+                <InputFile id="thumbnail1" class="shadow bg-gradient" title="House Thumbnail" OnChange="HandleThumbnail1Upload" accept=".png,.jpg,.jpeg" />
+            </div>
+            <div class="form-group">
+                <label for="thumbnail2">Thumbnail 2:</label>
+                <InputFile id="thumbnail2" class="shadow bg-gradient" title="House Thumbnail" OnChange="HandleThumbnail2Upload" accept=".png,.jpg,.jpeg" />
+            </div>
+            <div class="form-group">
+                <label for="thumbnail3">Thumbnail 3:</label>
+                <InputFile id="thumbnail3" class="shadow bg-gradient" title="House Thumbnail" OnChange="HandleThumbnail3Upload" accept=".png,.jpg,.jpeg" />
+            </div>
+            <div class="form-group">
+                <label for="thumbnail4">Thumbnail 4:</label>
+                <InputFile id="thumbnail4" class="shadow bg-gradient" title="House Thumbnail" OnChange="HandleThumbnail4Upload" accept=".png,.jpg,.jpeg" />
+            </div>
+
+            <h3>Building Details</h3>
+            <div class="form-group">
+                <label for="squareRoot">Square Root:</label>
+                <input type="number" class="form-control" id="squareRoot" @bind="@NewHouse.BuildingDetails.SquareRoot" />
+            </div>
+            <div class="form-group">
+                <label for="numOfRooms">Number of Rooms:</label>
+                <input type="number" class="form-control" id="numOfRooms" @bind="@NewHouse.BuildingDetails.NumOfRooms" />
+            </div>
+            <div class="form-group">
+                <label for="numOfBathrooms">Number of Bathrooms:</label>
+                <input type="number" class="form-control" id="numOfBathrooms" @bind="@NewHouse.BuildingDetails.NumOfBathrooms" />
+            </div>
+            <div class="form-group">
+                <label for="isPrivateToggle">Is Private:</label>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="isPrivateToggle" class="toggle-input" @bind="NewHouse.BuildingDetails.IsPrivate" />
+                    <label for="isPrivateToggle" class="toggle-label"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hasSwimmingPoolToggle">Has Swimming Pool:</label>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="hasSwimmingPoolToggle" class="toggle-input" @bind="NewHouse.BuildingDetails.HasSwimmingPool" />
+                    <label for="hasSwimmingPoolToggle" class="toggle-label"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="level">Level:</label>
+                <input type="number" class="form-control" id="level" @bind="@NewHouse.BuildingDetails.Level" />
+            </div>
+
+            <h3>Location</h3>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" class="form-control" id="country" @bind="@NewHouse.Location.Country" />
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" @bind="@NewHouse.Location.City" />
+            </div>
+            <div class="form-group">
+                <label for="street">Street:</label>
+                <input type="text" class="form-control" id="street" @bind="@NewHouse.Location.Street" />
+            </div>
+            <div class="form-group">
+                <label for="postalCode">Postal Code:</label>
+                <input type="text" class="form-control" id="postalCode" @bind="@NewHouse.Location.PostalCode" />
+            </div>
+
+            <div class="form-group align-content-center">
+                <button type="button" class="btn btn-primary" @onclick="CreateNewHouse">Create</button>
+            </div>
+        }
+        else
+        {
+            <p>Preparing...</p>
+        }
+    </form>
+</div>
+
+@code {
+    private House NewHouse = null;
+    private string error = null;
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (firstRender)
+        {
+            NewHouse = new House();
+            error = "";
+            StateHasChanged();
+        }
+    }
+    private bool ValidateFormValues()
+    {
+        if (NewHouse.Price < 1)
+        {
+            error = "Price cannot be negative.";
+            return false;
+        }
+        //main thumbnail should be valid - not empty
+        if (string.IsNullOrEmpty(NewHouse.MainThumbnailBase64))
+        {
+            error = "Main Thumbnail is required.";
+            return false;
+        }
+        //num of rooms and num of bath rooms should be positive
+        if (NewHouse.BuildingDetails.NumOfRooms < 1)
+        {
+            error = "Number of rooms should be positive.";
+            return false;
+        }
+        //num of bath rooms should be positive
+        if (NewHouse.BuildingDetails.NumOfBathrooms < 1)
+        {
+            error = "Number of bathrooms should be positive.";
+            return false;
+        }
+        //country and city should be valid
+        if (string.IsNullOrEmpty(NewHouse.Location.Country) || string.IsNullOrEmpty(NewHouse.Location.City))
+        {
+            error = "Country and City are required.";
+            return false;
+        }
+
+        return true;
+    }
+    private async Task CreateNewHouse()
+    {
+        error = "";
+        // Perform validation if needed
+        if (!ValidateFormValues())
+        {
+            StateHasChanged(); //display error message
+            return;
+        }
+
+        // Then save NewHouse to the database or perform other actions
+        // Example: dbContext.Houses.Add(NewHouse); dbContext.SaveChanges();
+
+        //navigate to house list page
+        navigationManager.NavigateTo("/house");
+    }
+
+    private async Task HandleThumbnail4Upload(InputFileChangeEventArgs e)
+    {
+        var code = await HandleThumbnailUpload(e);
+        if (code != null)
+            NewHouse.Thumbnail4Base64 = code;
+    }
+    private async Task HandleThumbnail3Upload(InputFileChangeEventArgs e)
+    {
+        var code = await HandleThumbnailUpload(e);
+        if (code != null)
+            NewHouse.Thumbnail3Base64 = code;
+    }
+    private async Task HandleThumbnail2Upload(InputFileChangeEventArgs e)
+    {
+        var code = await HandleThumbnailUpload(e);
+        if (code != null)
+            NewHouse.Thumbnail2Base64 = code;
+    }
+    private async Task HandleThumbnail1Upload(InputFileChangeEventArgs e)
+    {
+        var code = await HandleThumbnailUpload(e);
+        if (code != null)
+            NewHouse.Thumbnail1Base64 = code;
+    }
+    private async Task HandleMainThumbnailUpload(InputFileChangeEventArgs e)
+    {
+        var code = await HandleThumbnailUpload(e);
+        if (code != null)
+            NewHouse.MainThumbnailBase64 = code;
+    }
+    private async Task<string?> HandleThumbnailUpload(InputFileChangeEventArgs e)
+    {
+        var thumbnailFile = e.GetMultipleFiles().FirstOrDefault();
+        if (thumbnailFile != null)
+        {
+            using MemoryStream ms = new();
+            var resized = await thumbnailFile.RequestImageFileAsync(thumbnailFile.ContentType, maxWidth: 500, maxHeight: 800);
+            using Stream fileStream = resized.OpenReadStream();
+            await fileStream.CopyToAsync(ms);
+
+            var fileString = $"data:{thumbnailFile.ContentType};base64,{Convert.ToBase64String(ms.ToArray())}";
+            return fileString;
+        }
+        return null;
+    }
+}
