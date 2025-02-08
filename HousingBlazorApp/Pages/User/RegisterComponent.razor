@@ -1,0 +1,59 @@
+﻿@page "/register"
+@using System.ComponentModel.DataAnnotations
+@using System.Threading.Tasks
+@inject NavigationManager Navigation
+
+<h3>User Registration</h3>
+
+<EditForm Model="@registerModel" OnValidSubmit="RegisterUser">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <InputText id="firstName" class="form-control" @bind-Value="registerModel.FirstName" />
+        <ValidationMessage For="@(() => registerModel.FirstName)" />
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <InputText id="lastName" class="form-control" @bind-Value="registerModel.LastName" />
+        <ValidationMessage For="@(() => registerModel.LastName)" />
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <InputText id="email" class="form-control" @bind-Value="registerModel.Email" />
+        <ValidationMessage For="@(() => registerModel.Email)" />
+    </div>
+
+    <div class="form-group">
+        <label for="confirmedEmail">Confirm Email:</label>
+        <InputText id="confirmedEmail" class="form-control" @bind-Value="registerModel.ConfirmedEmail" />
+        <ValidationMessage For="@(() => registerModel.ConfirmedEmail)" />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <InputText id="password" class="form-control" @bind-Value="registerModel.Password" type="password" />
+        <ValidationMessage For="@(() => registerModel.Password)" />
+    </div>
+
+    <div class="form-group">
+        <label for="confirmedPassword">Confirm Password:</label>
+        <InputText id="confirmedPassword" class="form-control" @bind-Value="registerModel.ConfirmedPassword" type="password" />
+        <ValidationMessage For="@(() => registerModel.ConfirmedPassword)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</EditForm>
+
+@code {
+    private AppRegister registerModel = new AppRegister();
+
+    private async Task RegisterUser()
+    {
+        // Registration logic here
+        Navigation.NavigateTo("/");
+    }
+}

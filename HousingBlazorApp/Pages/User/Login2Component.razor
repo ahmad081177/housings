@@ -1,0 +1,37 @@
+﻿@page "/login2"
+@using System.ComponentModel.DataAnnotations
+@using System.Threading.Tasks
+@inject NavigationManager Navigation
+
+<h3>User Login</h3>
+
+<EditForm Model="@loginModel" OnValidSubmit="LoginUser">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <InputText id="email" class="form-control" @bind-Value="loginModel.Email" />
+        <ValidationMessage For="@(() => loginModel.Email)" />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <InputText id="password" class="form-control" @bind-Value="loginModel.Password" type="password" />
+        <ValidationMessage For="@(() => loginModel.Password)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</EditForm>
+
+@code {
+    private AppLogin loginModel = new AppLogin();
+
+    private async Task LoginUser()
+    {
+        // Perform login logic here
+        // For demonstration purposes, I'm just redirecting to the home page after login
+        // Replace this with your actual login logic
+        Navigation.NavigateTo("/");
+    }
+}

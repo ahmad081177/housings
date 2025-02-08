@@ -1,4 +1,4 @@
-﻿.file-area {
+﻿/*.file-area {
     width: 100%;
     position: relative;
 }
@@ -48,11 +48,11 @@
 
         .file-area input[type=file]:valid + .file-dummy .default {
             display: none;
-        }
+        }*/
 
 /* BASIC STYLING */
 
-* {
+/** {
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
@@ -82,7 +82,70 @@ h1 {
 }
 
 label {
+    font-weight: 500;*/
+    /*display: block;*/
+    /*margin: 4px 0;
+    text-transform: uppercase;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+    label span {
+        float: right;
+        text-transform: none;
+        font-weight: 200;
+        line-height: 1em;
+        font-style: italic;
+        opacity: 0.8;
+    }
+
+.form-controll {*/
+    /*display: block;*/
+    /*padding: 8px 16px;
+    width: 100%;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-weight: 200;
+}
+
+    .form-controll:focus {
+        outline: 2px solid rgba(255, 255, 255, 0.5);
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+
+.form-group {
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.back-to-article {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    text-decoration: none;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 18px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.6;
+}
+
+    .back-to-article:hover {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.8);
+    }*/
+
+
+
+label {
     font-weight: 500;
+    
     /*display: block;*/
     margin: 4px 0;
     text-transform: uppercase;
@@ -115,49 +178,16 @@ label {
         outline: -webkit-focus-ring-color auto 5px;
     }
 
-/*button {
-    padding: 8px 30px;
-    background: rgba(255, 255, 255, 0.8);
-    color: #053777;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 11px;
-    border: 0;
-    text-shadow: 0 1px 2px #fff;
-    cursor: pointer;
-}*/
-
 .form-group {
     max-width: 500px;
     margin: auto;
     margin-bottom: 30px;
 }
 
-.back-to-article {
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 12px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    text-decoration: none;
-    display: inline-block;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px 18px;
-    transition: all 0.3s ease-in-out;
-    opacity: 0.6;
-}
-
-    .back-to-article:hover {
-        opacity: 1;
-        background: rgba(0, 0, 0, 0.8);
-    }
-
-
 
 
 /* CSS */
-.toggle-switch {
+    .toggle-switch {
     position: relative;
     display: inline-block;
     width: 60px;
